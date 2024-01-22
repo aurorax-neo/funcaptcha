@@ -6,7 +6,7 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
-	"funcaptcha/logger"
+	"github.com/aurorax-neo/funcaptcha/logger"
 	"io"
 	"net/url"
 	"os"

@@ -2,7 +2,7 @@ package funcaptcha
 
 import (
 	"encoding/json"
-	"funcaptcha/logger"
+	"github.com/aurorax-neo/funcaptcha/logger"
 	http "github.com/bogdanfinn/fhttp"
 	tlsclient "github.com/bogdanfinn/tls-client"
 	"github.com/bogdanfinn/tls-client/profiles"
