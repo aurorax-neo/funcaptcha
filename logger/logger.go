@@ -13,7 +13,7 @@ var Logger *zap.Logger
 func init() {
 	// 配置日志输出到文件
 	zapConfig := zap.NewProductionConfig()
-	zapConfig.OutputPaths = []string{"log.log", "stdout"} // 将日志输出到文件 和 标准输出
+	zapConfig.OutputPaths = []string{"stdout"}            // 将日志输出到文件 和 标准输出
 	zapConfig.Encoding = "console"                        // 设置日志格 json console
 	zapConfig.Level = zap.NewAtomicLevelAt(zap.InfoLevel) // 设置日志级别
 	zapConfig.EncoderConfig = zapcore.EncoderConfig{      // 创建Encoder配置

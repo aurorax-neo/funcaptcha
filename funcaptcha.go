@@ -105,7 +105,6 @@ func WithHarData(harData HARData) SolverArg {
 						tmpArkReq.arkCookies = append(tmpArkReq.arkCookies, &http.Cookie{Name: cookie.Name, Value: cookie.Value, Expires: expire.UTC()})
 					}
 				}
-				var arkType string
 				tmpArkReq.arkBody = make(url.Values)
 				for _, p := range v.Request.PostData.Params {
 					// arkBody except bda & rnd
@@ -128,7 +127,7 @@ func WithHarData(harData HARData) SolverArg {
 				key := GetKey(parts[0], parts[1])
 				s.Arks[key] = append(s.Arks[key], tmpArkReq)
 				if tmpArkReq.arkBx != "" {
-					logger.Logger.Info("success read " + arkType + " arkose from " + v.Request.URL)
+					logger.Logger.Info("success read har from " + parts[0])
 					break
 				} else {
 					logger.Logger.Error("failed to decrypt HAR file")
