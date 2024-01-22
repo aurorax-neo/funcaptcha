@@ -80,7 +80,9 @@ func (s *Solver) sendRequest(key string, bda string, puid string) (string, error
 	tmpArk.arkBody.Set("rnd", strconv.FormatFloat(rand.Float64(), 'f', -1, 64))
 	req, _ := http.NewRequest(http.MethodPost, tmpArk.arkURL, strings.NewReader(tmpArk.arkBody.Encode()))
 	req.Header = tmpArk.arkHeader.Clone()
-	arkURLIns, _ := url.Parse(tmpArk.arkURL)
+	// 去掉 /public_key/ 后面的部分
+	link := strings.Split(tmpArk.arkURL, "/public_key/")[0]
+	arkURLIns, _ := url.Parse(link)
 	(*s.client).GetCookieJar().SetCookies(arkURLIns, tmpArk.arkCookies)
 	if puid != "" {
 		req.Header.Set("cookie", "_puid="+puid+";")
